@@ -21,7 +21,7 @@ const char *OTAName = "ESP8266";           // A name and a password for the OTA 
 const char *OTAPassword = "esp8266";
 
 #define PIN 15
-#define NUMPIXELS 200
+#define NUMPIXELS 300
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 const char* mdnsName = "esp8266"; // Domain name for the mDNS responder
@@ -242,8 +242,9 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t lenght
 
         for(int i=0; i<NUMPIXELS; i++){
           pixels.setPixelColor(i, pixels.Color(r, g, b)); 
-          pixels.show(); 
         }
+          pixels.show(); 
+
       } else if (payload[0] == 'R') {                      // the browser sends an R when the rainbow effect is enabled
         rainbow = true;
       } else if (payload[0] == 'N') {                      // the browser sends an N when the rainbow effect is disabled
