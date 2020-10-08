@@ -39,5 +39,8 @@ ISR(TIMER2_COMPA_vect){
 void loop() {
   potmeterValue = analogRead(POTMETERPIN);
   value = map(potmeterValue, 0, 1023, 0, 255);
-  Serial.print(value);
+  Serial.println(value);
+  int speed = value * 10; 
+  Serial.println(speed); 
+  delay(1000); 
 }
