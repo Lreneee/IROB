@@ -46,7 +46,7 @@ void loop() {
   potmeterValue = analogRead(POTMETERPIN);
   value = map(potmeterValue, 0, 1023, 0, 255);
   stepper(); 
-  delayMicroseconds(150000); 
+  delayMicroseconds(100000); 
 }
 void stepper(){
     switch(stepsPerRevolution){
