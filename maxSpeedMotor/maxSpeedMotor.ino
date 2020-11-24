@@ -14,10 +14,10 @@ void setup() {
   pinMode(stepPin2, OUTPUT);
   pinMode(dirPin2, OUTPUT);
   
-  pinMode(ms, HIGH); 
-  pinMode(ms2, HIGH); 
-  pinMode(ms3, HIGH); 
-  pinMode(ms4, HIGH); 
+//  pinMode(ms, HIGH); 
+//  pinMode(ms2, HIGH); 
+//  pinMode(ms3, HIGH); 
+//  pinMode(ms4, HIGH); 
 
 }
 
@@ -27,8 +27,8 @@ void loop() {
     digitalWrite(dirPin2, LOW); 
      digitalWrite(stepPin, HIGH);
   digitalWrite(stepPin2, HIGH);
-  delayMicroseconds(365);
+  delayMicroseconds(1000);
   digitalWrite(stepPin, LOW);
   digitalWrite(stepPin2, LOW);
-  delayMicroseconds(365);
+  delayMicroseconds(1000);
 }
