@@ -69,10 +69,7 @@ unsigned long tNow;
       Serial.println(line);
       break;                                              // exit
     }
-    if((millis()-tNow)>1000){                             // if more then 1 Second No Reply -> exit
-      Serial.println("timeout");
-      break;                                              // exit
-    }
+  
   }                        
 
   TCP_Client.flush();                                     // Empty Bufffer 
