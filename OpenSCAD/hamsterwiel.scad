@@ -1,15 +1,37 @@
-rad1 = 90;
-rad2 = 20;
-gaten = 6;
-// code
-d = (rad1 + rad2)/(1+sqrt(2));
-difference()
-{
- cylinder(r=rad1/2, h=10, $fn=200);
- for(i=[0:gaten])
- {
+spijlen = 10; 
+rad1 =80; 
+rad2 = 70; 
 
-translate([d/2*cos(i*360/gaten),d/2*sin(i*360/gaten),-0.5])
- cylinder(r=rad2/2,h=11);
- }
+module hamsterwiel() {
+    
+    $fn=50;
+    color("white")
+    minkowski(){
+        translate([0, -rad1, 15])
+    	cube([100, 5, 10], center=true);
+        cylinder(r=5, h=30, center=true);
+        }
+	difference() {
+		union() {
+            translate([0, 0, 15])
+			difference () {
+                color("lightblue")
+				cylinder(h=55, r=rad1, center=true, $fn=200) ;
+                 color("lightblue")
+				cylinder(h=60, r=rad2, center=true, $fn=96) ;
+			}
+			rotate([0, 90, 0]) {
+				for (r = [0:spijlen]) {
+                     color("lightblue")
+					rotate ([360 * r/spijlen, 0, 0]) { cylinder(h=rad1, r=3, $fn=16) ; }
+				}
+			}
+             color("lightblue")
+			cylinder(h=10, r=5, center=true, $fn=100) ;
+		}
+         color("lightblue")
+		cylinder(h=35, r=4, center=true, $fn=100) ;
+	}
 }
+
+hamsterwiel() ;
